@@ -76,12 +76,25 @@ public class Product {
         double totalCheckOne = totalSum / (double) qtyPeople; //счет на 1 человека
         int flagRub = (int) totalCheckOne % 10; // флаг проверки на окончание
         String string = "Сумма оплаты: " + String.format("%.2f", totalCheckOne)+ " рубл";
-        switch (flagRub) { //я писал обычный switch, но Android Studio предложил заменить на enhanced switch (красивое)
-            case 1 -> string = string + "ь";
-            case 2, 3, 4 -> string = string + "я";
-            case 0, 5, 6, 7, 8, 9 -> string = string + "ей";
-            default -> {
-            }
+        switch (flagRub){
+            case 1:
+                string = string + "ь";
+                break;
+            case 2:
+            case 3:
+            case 4:
+                string = string + "я";
+                break;
+            case 0:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                string = string + "ей";
+                break;
+            default:
+                break;
         }
         System.out.println(string);
     }

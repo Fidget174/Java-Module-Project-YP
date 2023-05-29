@@ -6,7 +6,7 @@ public class Main{
         Check.setQtyPeople(); //Ввод количества человек
         Product product = new Product();
         while(true) {
-            if (!Product.checkExit()) {//проверка на Выход
+            if (!Product.checkExit()) {//проверка на Выход через слово Завершить
                 product.setName();
                 product.setPrice();
                 product.printName();

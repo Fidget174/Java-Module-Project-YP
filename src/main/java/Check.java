@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Check {
-    private static int qtyPeople;
+    private static int qtyPeople; //количество людей для разделения счета
 
     public static int getQtyPeople(){
         return qtyPeople;
