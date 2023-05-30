@@ -18,3 +18,4 @@ public class Main{
         Product.printTotalSum(Check.getQtyPeople());
     }
 }
+

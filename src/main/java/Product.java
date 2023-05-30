@@ -73,28 +73,32 @@ public class Product {
     }
 
     public static void printTotalSum(int qtyPeople){ //вывод на экран оплаты для каждого человека
-        double totalCheckOne = totalSum / (double) qtyPeople; //счет на 1 человека
-        int flagRub = (int) totalCheckOne % 10; // флаг проверки на окончание
-        String string = "Сумма оплаты: " + String.format("%.2f", totalCheckOne)+ " рубл";
-        switch (flagRub){
-            case 1:
-                string = string + "ь";
-                break;
-            case 2:
-            case 3:
-            case 4:
-                string = string + "я";
-                break;
-            case 0:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-                string = string + "ей";
-                break;
-            default:
-                break;
+        double totalCheckOne = (double) Math.floor(totalSum * 100 / qtyPeople) / 100; //счет на 1 человека
+        int flagRub = (int) Math.floor(totalCheckOne) % 10; // флаг проверки на окончание
+        String string = String.format("Сумма оплаты: %.2f", totalCheckOne);
+        if (totalCheckOne>10 && totalCheckOne<15) { //проверка на частный случай от 10 до 15
+            string = string + " рублей\n";
+        } else {
+            switch (flagRub) {
+                case 1:
+                    string = string + " рубль\n";
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    string = string + " рубля\n";
+                    break;
+                case 0:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    string = string + " рублей\n";
+                    break;
+                default:
+                    break;
+            }
         }
         System.out.println(string);
     }
