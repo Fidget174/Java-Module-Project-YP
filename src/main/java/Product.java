@@ -104,7 +104,7 @@ public class Product {
     }
 
     public static boolean checkExit(){      //проверка на "Завершить"
-            System.out.println("Ввести еще один товар или завершить?");
+        System.out.println("Ввести еще один товар или завершить?");
         Scanner scanner = new Scanner (System.in);
         String stringCheck = scanner.nextLine();
         boolean flagCheck = stringCheck.equalsIgnoreCase("завершить");
