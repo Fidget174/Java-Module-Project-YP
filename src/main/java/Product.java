@@ -75,8 +75,10 @@ public class Product {
     public static void printTotalSum(int qtyPeople){ //вывод на экран оплаты для каждого человека
         double totalCheckOne = (double) Math.floor(totalSum * 100 / qtyPeople) / 100; //счет на 1 человека
         int flagRub = (int) Math.floor(totalCheckOne) % 10; // флаг проверки на окончание
+        double flagRubTen = totalCheckOne % 100; //флаг проверки на число от 11 до 15 в десятках
         String string = String.format("Сумма оплаты: %.2f", totalCheckOne);
-        if (totalCheckOne>10 && totalCheckOne<15) { //проверка на частный случай от 10 до 15
+
+        if (flagRubTen > 10 && flagRubTen < 15) { //проверка на частный случай от 10 до 15
             string = string + " рублей\n";
         } else {
             switch (flagRub) {
