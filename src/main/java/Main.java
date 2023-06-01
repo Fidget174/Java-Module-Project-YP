@@ -1,6 +1,21 @@
+import java.util.Scanner;
 
-public class Main {
+public class Main{
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Check.setQtyPeople(); //Ввод количества человек
+        Product product = new Product();
+        while(true) {
+            if (!Product.checkExit()) {//проверка на Выход через слово Завершить
+                product.setName();
+                product.setPrice();
+                product.printName();
+            } else {
+                break;
+            }
+        }
+        Product.printTotalList();
+        Product.printTotalSum(Check.getQtyPeople());
     }
 }
+
